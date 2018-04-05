@@ -1,0 +1,28 @@
+model {
+
+  #Observations
+  for(i in 1:N) {
+    y[i] ~ dpois(mu[Z[i]])
+  }
+
+  #Components
+  #Mu[i] re-ordered mean of group 
+  for(k in 1:K) {
+    beta.orig[k] ~ dnorm(mean.grp, prec.grp)#I(0, 10)
+  }
+
+  grp.rank <- order(beta.orig[])#JAGS specific
+  for(k in 1:K) {
+    beta[k] <- beta.orig[grp.rank[k]]
+    log(mu[k]) <- beta[k]
+  }
+
+  #Distribution of Z
+  for(i in 1:N) {
+    Z[i] ~ dcat (w[])
+  }
+  
+  #Prior on the proportion of observations in each group
+  w[1:K] ~ ddirch(alpha[])
+}
+
