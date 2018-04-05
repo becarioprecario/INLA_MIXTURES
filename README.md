@@ -7,9 +7,19 @@ Gibbs sampling' by by V. Gómez-Rubio. A draft of this paper is available at
 
 The `R` code includes:
 
-* Simulation study.
+* `install_pkgs.R`
 
-* Example on galaxies dataset.
+  `R` script to install some libraries required to run the code.
 
-* Example on the earthquakes dataset.
+* `simulation_study`
+
+  `R` code to run the simulation study described in the paper.
+
+* `examples_galaxies`
+
+  `R` code to run the example on the galaxies dataset.
+
+* `example_earthquakes`
+
+  `R` code to run the example on the earthquakes dataset.
 
